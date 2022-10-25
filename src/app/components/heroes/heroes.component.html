@@ -1,0 +1,23 @@
+<div class="container mt-3">
+    <h1><strong>Héroes</strong> Marvel y DC</h1>
+    <hr>
+
+    <div class="row row-cols-md-3 g-4">
+        <div *ngFor="let heroe of heroes">
+            <div class="cols">
+                <div class="card h-100">
+                    <img [src]="heroe.img" class="card-img-top" alt="héroe">
+                    <div class="card-body">
+                        <h5 class="card-title">{{heroe.nombre}}</h5>
+                        <p class="card-text">{{heroe.bio}}</p>
+                        <small class="text-muted">{{heroe.aparicion}}</small>
+                        <div class="d-grid gap-2 mt-3">
+                            <button class="btn btn-outline-primary" type="button" [routerLink]="['/detall-heroes', heroe.id]">Ver más...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row row-cols-1 row-cols-md-3 g-4 -->
