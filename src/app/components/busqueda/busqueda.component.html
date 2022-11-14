@@ -1,0 +1,36 @@
+<div class="container mt-5 mb-5">
+    <div *ngIf="contnombres > 1 && !respuestavacio">
+        <h2>Hemos encontrado los siguientes resultados para tu búsqueda: <b><i>"{{id}}"</i></b></h2>
+        <hr>
+        <div class="row row-cols-md-3 g-4">
+            <div *ngFor="let heroe of heroearraybusqueda">
+                <div class="cols mt-3">
+                    <div class="card h-100">
+                        <img [src]="heroe.img" class="card-img-top" alt="héroe">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{heroe.nombre}}</h5>
+                            <div class="d-grid gap-2 mt-3">
+                                <button class="btn btn-outline-primary" type="button" [routerLink]="['/detall-heroes', heroe.id]">Ver más...</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div align="center" *ngIf="contnombres == 0 && !respuestavacio">
+        <h2>Lo sentimos pero <b>NO</b> hemos ecnontrado resultados para:</h2>
+        <h4 class="fw-light fst-italic mt-4 mb-3">"{{id}}"</h4>
+        <a [routerLink]="['/heroes']" class="btn btn-success">Ver todos los héroes de los que disponemos</a>
+        <br>
+        <img src="\assets\img\img no results.png" class="mt-5 featureImgNoResults">
+    </div>
+
+    <div align="center" *ngIf="respuestavacio">
+        <h2>No has realizado ninguna búsqueda. Inténtelo de nuevo.</h2>
+        <a [routerLink]="['/heroes']" class="btn btn-success mt-3">Ver todos los héroes de los que disponemos</a>
+        <br>
+        <img src="\assets\img\img no results.png" class="mt-5 featureImgNoResults">
+    </div>
+</div>

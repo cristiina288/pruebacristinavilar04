@@ -1,24 +1,24 @@
 <div class="container margen">
-    <span class="fs-1 text-uppercase fw-semibold">{{heroes[id - 1].nombre}}</span>
-    <span class="fs-3"> ({{apari}})</span>
+    <span class="fs-1 fw-semibold">{{nombre | uppercase}}</span>
+    <span class="fs-3"> ({{aparicion | date: 'y'}})</span>
     <br>
     
     <div class="row mt-3">
         <div class="col-4">
-            <img [src]="heroes[id - 1].img" alt="héroe" width="350" height="300" class="mb-3 marginfoto">
+            <img [src]="img" alt="héroe" width="350" height="300" class="mb-3">
             <div class="d-grid gap-2 mt-3">
                 <a [routerLink]="['/heroes']" class="btn btn-outline-danger">Ver todos los héroes</a>
             </div>
         </div>
         <div class="col-8">
-            <span class="fs-4 fw-semibold">{{heroes[id - 1].nombre}}</span>
+            <span class="fs-4 fw-semibold">{{nombre}}</span>
             <hr>
-            <p class="mb-3">{{heroes[id - 1].bio}}</p>
+            <p class="mb-3">{{bio}}</p>
             
-            <div *ngIf="heroes[id - 1].casa == 'DC'">
+            <div *ngIf="casa == 'DC'">
                 <img src="\assets\img\DC.jpg" width="300" height="300">
             </div>
-            <div *ngIf="heroes[id - 1].casa == 'Marvel'">
+            <div *ngIf="casa == 'Marvel'">
                 <img src="\assets\img\marvel.png" width="300" height="250">
             </div>
         </div>

@@ -69,15 +69,28 @@ export class DetallHeroesComponent implements OnInit {
       casa: "Marvel"
     }
   ];
-  apari: any;
+  
   id: any;
+  nombre: any;
+  bio: any;
+  img: any;
+  aparicion: any;
+  casa: any;
+
+  contnombres:any = 0;
+
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
+    
 
     for (let i = 0; i < this.heroes.length; i++){
-      
-      if (this.id == this.heroes[i].id) {
-        this.apari = this.heroes[i].aparicion.substring(0, 4);
+      if (this.id == this.heroes[i].id || this.heroes[i].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0) {
+        this.nombre = this. heroes[i].nombre;
+        this.bio = this. heroes[i].bio;
+        this.img = this. heroes[i].img;
+        this.aparicion = this. heroes[i].aparicion;
+        this.casa = this. heroes[i].casa;
+
       }
     }
   }
